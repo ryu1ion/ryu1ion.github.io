@@ -4,61 +4,164 @@ import '../css/Publications.css';
 
 const MY_NAME = 'Tianhao Chen';
 
+const tagColors = {
+  conference: 'conference',
+  journal: 'journal',
+  workshop: 'workshop',
+  submission: 'submission',
+  wip: 'wip',
+  project: 'project',
+  exhibition: 'exhibition',
+};
+
+const tagStyleMap = {
+  'In Submission': '#cccccc',
+  'Multi-Agent Systems': '#ff7f96',
+  'Collaborative Driving': '#ffb07f',
+  'Latent Communication': '#ffcd49',
+  'Efficient Multimodal AI': '#f3dc12',
+  'KV Cache Compression': '#b8cc7d',
+  'Visual Attention': '#7dcd6f',
+  'Video Generation': '#6fcda6',
+  'Autoregressive Models': '#87dcdc',
+  'Interactive AI': '#7fcaff',
+};
+
 export default function Publications() {
-  const [selectedTopic, setSelectedTopic] = useState('');
-  const topics = [...new Set(publications.map((paper) => paper.topic))];
-  const visiblePublications = selectedTopic
-    ? publications.filter((paper) => paper.topic === selectedTopic)
+  const [selectedTag, setSelectedTag] = useState('');
+
+  const filteredPublications = selectedTag
+    ? publications.filter((paper) => paper.tags.includes(selectedTag))
     : publications;
 
+  const handleTagClick = (tag) => {
+    setSelectedTag(selectedTag === tag ? '' : tag);
+  };
+
+  const handleSelectChange = (event) => {
+    const newTag = event.target.value;
+    handleTagClick(newTag);
+  };
+
   return (
-    <section className="publications" id="publications" aria-labelledby="publications-heading">
+    <div className="publications" id="publications" style={{ marginTop: '1rem' }}>
       <div className="publications-select">
-        <h2 className="card-title" id="publications-heading">Publications</h2>
+        <div className="card-title">Publications</div>
         <select
           className="tag-select-filter"
-          value={selectedTopic}
-          onChange={(event) => setSelectedTopic(event.target.value)}
-          aria-label="Filter publications by topic"
+          value={selectedTag}
+          onChange={handleSelectChange}
+          style={{ background: `${tagColors[selectedTag]}` }}
         >
-          <option value="">All topics</option>
-          {topics.map((topic) => <option key={topic} value={topic}>{topic}</option>)}
+          <option value="">All</option>
+          {Object.keys(tagStyleMap).map((tag) => (
+            <option key={tag} value={tag}>{tag}</option>
+          ))}
         </select>
       </div>
-      <p className="publications-info-small">Publication status and authorship follow the latest CV. Tianhao Chen is highlighted.</p>
+
+      <div className="publications-info">
+        <div className="publications-info-small">
+          * indicates equal contribution, and † denotes the advising professor.
+        </div>
+      </div>
 
       <div className="publications-list">
-        {visiblePublications.map((paper) => (
-          <article key={paper.id} className="publication-card" id={paper.id}>
-            <img src={paper.image} alt={`Abstract visual for ${paper.title}`} className="publication-image" />
+        {filteredPublications.map((paper, index) => (
+          <div key={index} className="publication-card" id={paper.id}>
+            <img
+              src={paper.image}
+              alt={paper.title}
+              className="publication-image"
+            />
+
             <div className="publication-content">
               <div className="publication-venue">
-                <span className={`venue-tag ${paper.venueType}`}>{paper.venue}</span>
-              </div>
-              <h3 className="publication-title">{paper.title}</h3>
-              <p className="publication-authors">
-                {paper.authors.map((author, index) => (
-                  <span key={author}>
-                    {author === MY_NAME ? <strong>{author}</strong> : author}
-                    {index < paper.authors.length - 1 ? ', ' : ''}
+                {paper.venues.map((venue, venueIndex) => (
+                  <span
+                    key={venueIndex}
+                    className={`venue-tag ${tagColors[venue.type]}`}
+                  >
+                    {venue.name}
                   </span>
                 ))}
-              </p>
-              <p className="publication-summary">{paper.abstract}</p>
-              <div className="publication-tags">
-                {paper.tags.map((tag) => <span key={tag} className="tag-item-show">#{tag}</span>)}
               </div>
-              {paper.links.length > 0 && (
-                <div className="publication-links">
-                  {paper.links.map((link) => (
-                    <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>
-                  ))}
-                </div>
-              )}
+
+              <div className="publication-title-wrapper">
+                <div className="publication-title">{paper.title}</div>
+                <div className="abstract-popup">{paper.abstract}</div>
+              </div>
+
+              <div className="publication-authors">
+                {paper.authors.map((author, index) => {
+                  let symbol = '';
+                  if (author.role === 'first') symbol = '*';
+                  if (author.role === 'second') symbol = '**';
+                  if (author.role === 'advisor') symbol = '†';
+
+                  const isMe = author.name === MY_NAME;
+                  const authorName = isMe ? (
+                    <strong style={{ color: '#F42E7A', fontWeight: 900 }}>
+                      {author.name + symbol}
+                    </strong>
+                  ) : (
+                    author.name + symbol
+                  );
+
+                  return (
+                    <span key={index}>
+                      {author.link ? (
+                        <a
+                          href={author.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="author-link"
+                        >
+                          {authorName}
+                        </a>
+                      ) : (
+                        authorName
+                      )}
+                      {index < paper.authors.length - 1 && ', '}
+                    </span>
+                  );
+                })}
+              </div>
+
+              <div className="publication-tags">
+                {paper.tags.map((tag, index) => {
+                  if (tag === 'Selected') {
+                    return (
+                      <span key={index} className="tag-item-show rainbow-tag-all">
+                        #{tag}
+                      </span>
+                    );
+                  }
+                  if (tag === 'In Submission') {
+                    return (
+                      <span key={index} className="tag-item-show submission-tag-all">
+                        #{tag}
+                      </span>
+                    );
+                  }
+                  return (
+                    <span key={index} className="tag-item-show" style={{ color: '#888' }}>
+                      #{tag}
+                    </span>
+                  );
+                })}
+              </div>
+
+              <div className="publication-links">
+                {paper.links.pdf && <a href={paper.links.pdf}>PDF</a>}
+                {paper.links.arxiv && <a href={paper.links.arxiv}>arXiv</a>}
+                {paper.links.github && <a href={paper.links.github}>Github</a>}
+                {paper.links.web && <a href={paper.links.web}>Website</a>}
+              </div>
             </div>
-          </article>
+          </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -11,13 +11,15 @@ export const publications = [
       'to collaborative multi-agent environments for efficient sharing, low-latency coordination, ' +
       'and cooperative decision-making.'
     ),
-    authors: ['Tianhao Chen', 'Yuheng Wu', 'Dongman Lee'],
-    venue: 'Under Review',
-    venueType: 'submission',
-    topic: 'Multi-Agent Systems',
-    tags: ['Multi-Agent Systems', 'Collaborative Driving', 'Latent Communication'],
+    authors: [
+      { name: 'Tianhao Chen', link: 'https://ryu1ion.github.io/' },
+      { name: 'Yuheng Wu' },
+      { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'advisor' },
+    ],
+    venues: [{ name: 'Under Review', type: 'submission' }],
+    tags: ['In Submission', 'Multi-Agent Systems', 'Collaborative Driving', 'Latent Communication'],
     image: lacoImage,
-    links: [],
+    links: {},
   },
   {
     id: 'bacon',
@@ -26,13 +28,18 @@ export const publications = [
       'A plug-and-play optimization method that preserves sparse, decision-critical visual ' +
       'information under constrained memory budgets for faster and more reliable multimodal inference.'
     ),
-    authors: ['Tianhao Chen', 'Yuheng Wu', 'Kelu Yao', 'Xiaogang Xu', 'Xiaobin Hu', 'Dongman Lee'],
-    venue: 'EMNLP 2026 Main · 15.4% Acceptance Rate',
-    venueType: 'conference',
-    topic: 'Efficient Multimodal AI',
+    authors: [
+      { name: 'Tianhao Chen', link: 'https://ryu1ion.github.io/' },
+      { name: 'Yuheng Wu' },
+      { name: 'Kelu Yao' },
+      { name: 'Xiaogang Xu' },
+      { name: 'Xiaobin Hu' },
+      { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'advisor' },
+    ],
+    venues: [{ name: 'EMNLP 2026 Main · 15.4% Acceptance Rate', type: 'conference' }],
     tags: ['Efficient Multimodal AI', 'KV Cache Compression', 'Visual Attention'],
     image: baconImage,
-    links: [],
+    links: {},
   },
   {
     id: 'delta-forcing',
@@ -41,12 +48,18 @@ export const publications = [
       'A real-time video generation framework that balances teacher supervision with trajectory ' +
       'consistency for stable, responsive, and temporally coherent long-horizon generation.'
     ),
-    authors: ['Yuheng Wu', 'Xiangbo Gao', 'Tianhao Chen', 'Xinghao Chen', 'Qing Yin', 'Zhengzhong Tu', 'Dongman Lee'],
-    venue: 'Under Review',
-    venueType: 'submission',
-    topic: 'Video Generation',
-    tags: ['Video Generation', 'Autoregressive Models', 'Interactive AI'],
+    authors: [
+      { name: 'Yuheng Wu' },
+      { name: 'Xiangbo Gao' },
+      { name: 'Tianhao Chen', link: 'https://ryu1ion.github.io/' },
+      { name: 'Xinghao Chen' },
+      { name: 'Qing Yin' },
+      { name: 'Zhengzhong Tu' },
+      { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'advisor' },
+    ],
+    venues: [{ name: 'Under Review', type: 'submission' }],
+    tags: ['In Submission', 'Video Generation', 'Autoregressive Models', 'Interactive AI'],
     image: deltaImage,
-    links: [],
+    links: {},
   },
 ];

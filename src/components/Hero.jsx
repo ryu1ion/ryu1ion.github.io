@@ -1,11 +1,11 @@
-import { FaGithub } from 'react-icons/fa';
-import { FaGoogleScholar } from 'react-icons/fa6';
-import { MdEmail } from 'react-icons/md';
 import avatar from '../assets/avatar.jpg';
-import { profile } from '../data/profile';
 import '../css/Hero.css';
+import { FaGithub } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import { FaGoogleScholar } from 'react-icons/fa6';
+import { profile } from '../data/profile';
 
-export default function Hero() {
+function Hero() {
   const links = [
     { label: 'Email', icon: <MdEmail />, url: profile.links.email },
     { label: 'GitHub', icon: <FaGithub />, url: profile.links.github },
@@ -13,42 +13,58 @@ export default function Hero() {
   ];
 
   return (
-    <section className="hero-grid" id="home">
+    <div className="hero-grid">
       <div className="hero-left">
-        <div className="profile-frame">
-          <img src={avatar} alt="Tianhao Chen's cat profile avatar" className="profile-pic" />
-          <span className="profile-sparkle" aria-hidden="true">✦</span>
-        </div>
+        <img
+          src={avatar}
+          alt="Profile"
+          className="profile-pic"
+        />
         <div className="hero-meta">
-          <h1 className="meta-name">{profile.name}</h1>
-          <div className="meta-title">{profile.title}</div>
-          <div className="meta-affiliation">{profile.affiliation}</div>
-          <div className="meta-description" aria-label="Research interests">
+          <div className="meta-name">Tianhao Chen 陈天皓</div>
+          M.S. Student in Computer Science
+          <div className="meta-description">
             <div>🧠 Multimodal Large Language Models</div>
             <div>⚡ Reasoning &amp; Inference Efficiency</div>
             <div>🤖 Multi-Agent Collaboration</div>
           </div>
           <div className="meta-link">
-            <a className="meta-linkitem" href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV / Resume</a>
+            <a
+              className="meta-linkitem"
+              href={profile.links.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Scholar
+            </a>
+            <a
+              className="meta-linkitem"
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CV
+            </a>
           </div>
           <div className="contact-small">
             {links.map((item) => (
               <a
                 key={item.label}
                 href={item.url}
-                target={item.url.startsWith('mailto:') ? undefined : '_blank'}
-                rel={item.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="icon-link"
                 aria-label={item.label}
-                title={item.label}
               >
                 {item.icon}
               </a>
             ))}
           </div>
-          <div className="small-text">Last updated: September 2026</div>
+          <div className="small-text">Last Updated Date: 2026/09/05</div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
+
+export default Hero;

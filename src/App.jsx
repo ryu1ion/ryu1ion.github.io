@@ -1,35 +1,45 @@
+import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import News from './components/News';
 import Publications from './components/Publications';
-import Experience from './components/Experience';
+import Internship from './components/Internship';
 import Education from './components/Education';
-import Awards from './components/Awards';
-import Footer from './components/Footer';
+import SelectedAwards from './components/SelectedAwards';
+import More from './components/More';
+import Visitor from './components/Visitor';
 import './App.css';
 import './css/All.css';
 
-export default function App() {
+function App() {
+  useEffect(() => {
+    window.gtag && window.gtag('config', 'G-F053REKZP6', {});
+  }, []);
+
   return (
     <div className="App">
       <Header />
-      <main className="main-layout">
-        <aside className="left-hero" aria-label="Profile summary">
+      <div className="main-layout">
+        <div className="left-hero">
           <Hero />
-        </aside>
+        </div>
         <div className="right-content">
-          <div className="content-inner">
+          <div style={{ margin: '2rem' }}>
             <About />
             <News />
             <Publications />
-            <Experience />
+            <Internship />
             <Education />
-            <Awards />
+            <SelectedAwards />
+            <More />
           </div>
-          <Footer />
+          <Visitor />
         </div>
-      </main>
+      </div>
+      {/* <Footer /> */}
     </div>
   );
 }
+
+export default App;

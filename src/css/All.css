@@ -1,300 +1,230 @@
-.card,
-.publications {
-  margin-top: 2.1rem;
-}
+/*.about {*/
+/*    !*margin: 2rem;*!*/
+/*    padding: 4rem;*/
+/*    border-radius: 1rem;*/
 
+/*    background-image: url("../assets/about.png"); !* <-- 你的PNG路径 *!*/
+/*    background-repeat: no-repeat;       !* 不重复 *!*/
+
+/*    background-position: center;*/
+/*    background-size: 100% 100%;*/
+/*}*/
 .about {
-  margin: 0;
-}
+    margin: 1rem 0;
 
-.card-title {
-  margin: 0 0 0.55rem;
-  color: #f42e7a;
-  font-family: 'Sigmar One', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 900;
-  line-height: 1.35;
 }
 
 .intro-text {
-  text-align: justify;
-}
-
-.intro-text p {
-  margin: 0 0 0.75rem;
-}
-
-.intro-text strong,
-.publication-authors strong {
-  color: #b01852;
-}
-
-.intro-text a {
-  color: #242424;
-  font-style: italic;
-  text-decoration: underline;
-  text-decoration-color: #ffbed2;
-  text-underline-offset: 2px;
-}
-
-.intro-text a:hover {
-  color: #f42e7a;
+    text-align: justify;
+    /* hyphens: auto; */
 }
 
 .callout {
-  position: relative;
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid #ffbed2;
-  border-radius: 8px;
-  color: #242424;
-  background: #fff6f8;
+    background-color: #FFF6F8;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #242424;
+    border: 1px #FFBED2 solid;
+    position: relative;
 }
-
 .callout::after {
-  content: '📌';
-  position: absolute;
-  top: -1rem;
-  right: 0;
-  font-size: 1.5rem;
+    content: '📌';
+    position: absolute;
+    top: -1rem;
+    right: 0rem;
+    /*left: 0.5rem;*/
+    font-size: 1.5rem;
 }
 
-.callout-label {
-  display: block;
-  margin-bottom: 0.55rem;
-  color: #7c6670;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+
+strong{
+    color: #F42E7A;
+}
+.intro-text a{
+    color: #000000;
+    font-style: italic;
+}
+.intro-text a:hover {
+    color: #FFBED2;
 }
 
-.interest-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+
+.card-title{
+    color: #F42E7A;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    font-family: 'Sigmar One', serif;
+    /*margin-top: 1rem;*/
 }
 
-.interest-tags span,
-.role-tag {
-  display: inline-block;
-  padding: 1px 9px;
-  border: 1px solid #ffe0e9;
-  border-radius: 999px;
-  color: #806b73;
-  background: #fff;
-  font-size: 0.7rem;
-  white-space: nowrap;
-}
+
 
 .news-list {
-  max-height: 11rem;
-  margin: 0;
-  padding: 0.4rem 0.8rem;
-  overflow-y: auto;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  background: #fcfcfc;
-  list-style: none;
+    margin: 0;
+    max-height: 6em; /* 控制显示高度，大约5条 */
+    overflow-y: auto; /* 可以下拉滚动 */
+    /*border: none;*/
+    padding: 6px 12px ;
+    /*background: #FFF6F8;*/
+    border-radius: 8px;
+    background: #fcfcfc;
+    border: 1px solid #eee;
 }
 
+
 .news-list li {
-  display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
-  padding: 0.42rem 0;
-  align-items: start;
-  border-bottom: 1px dashed #d8d0d3;
-  font-size: 0.8rem;
+    display: grid;
+    grid-template-columns: 80px 1fr; /* 表格结构：左边时间，右边内容 */
+
+    padding: 2px 0;
+    align-items: center;
+    font-size: 0.8rem;
+    border-bottom: 1px dashed #acacac;
 }
 
 .news-list li:last-child {
-  border-bottom: 0;
+    border-bottom: none;
 }
 
 .news-time {
-  color: #a31550;
-  font-weight: 700;
+    font-weight: 700;
+    color: #FFBED2;
 }
 
 .news-content {
-  color: #444;
+    color: #333;
 }
 
 .news-ref {
-  color: #242424;
-  font-style: italic;
-  font-weight: 650;
+    color: #242424;
+    font-weight: 600;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
 }
 
-a.news-ref:hover {
-  color: #f42e7a;
+
+.award-item{
+    margin: 0.2rem 0;
+}
+.award-icon{
+    color:#FFBED2;
+}
+.award-text{
+    color: #242424;
+    font-size: 0.8rem;
+}
+.award-highlight{
+    color: #F42E7A;
 }
 
+
+
+/* --- Education 组件特有样式 --- */
 .education-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .education-item {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  background: #fcfcfc;
-}
-
-.education-logo-wrap {
-  display: grid;
-  width: 54px;
-  height: 54px;
-  flex: 0 0 54px;
-  place-items: center;
-  border: 1px solid #f1e6ea;
-  border-radius: 8px;
-  background: #fff;
-}
-
-.education-logo {
-  width: 42px;
-  max-height: 42px;
-  object-fit: contain;
-}
-
-.education-logo-wrap.logo-shu {
-  background: #183f7a;
-}
-
-.education-copy {
-  min-width: 0;
-  flex: 1;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fcfcfc;
 }
 
 .education-header {
-  display: flex;
-  gap: 1rem;
-  align-items: start;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .education-university {
-  margin: 0;
-  color: #242424;
-  font-size: 0.95rem;
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-.education-header a:hover .education-university {
-  color: #f42e7a;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #242424;
+    margin: 0;
 }
 
 .education-period {
-  display: flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  align-items: end;
-  color: #666;
-  font-size: 0.76rem;
-  white-space: nowrap;
-}
-
-.education-location {
-  color: #666;
-  font-size: 0.68rem;
+    font-size: 0.8rem;
+    color: #888;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .education-details {
-  margin-top: 0.25rem;
-  color: #333;
-  font-size: 0.78rem;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
 }
 
-.education-degree {
-  margin: 0;
+.education-details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #242424;
 }
 
-.education-highlights {
-  margin: 0.4rem 0 0;
-  padding: 0;
-  color: #686868;
-  list-style: none;
+.education-degree strong {
+    font-weight: 700;
+    color: #F42E7A;
 }
 
-.education-highlights li {
-  position: relative;
-  padding-left: 1rem;
+.education-location {
+    font-size: 0.7rem;
+    color: #acacac;
 }
 
-.education-highlights li::before {
-  content: '✦';
-  position: absolute;
-  left: 0;
-  color: #ffbed2;
+.education-courses {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    gap: 4px;
 }
 
-.awards-list {
-  padding: 0.75rem 1rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  background: #fcfcfc;
+.education-courses ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 4px;
 }
 
-.award-item + .award-item {
-  margin-top: 0.45rem;
+.education-courses li {
+    background-color: #FFF6F8;
+    border-radius: 99px;
+    padding: 0px 8px;
+    font-size: 0.7rem;
+    color: #888;
+    white-space: nowrap;
 }
 
-.award-icon {
-  color: #ffbed2;
+.education-advisor {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
 }
 
-.award-text {
-  color: #333;
-  font-size: 0.8rem;
+.education-advisor .advisor-link {
+    color: #F42E7A; /* 导师链接的颜色 */
+    text-decoration: none;
+    border-bottom: 1px dotted #F42E7A;
 }
 
-.award-text a {
-  color: #333;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: #ffbed2;
-  text-underline-offset: 2px;
+.education-advisor .advisor-link:hover {
+    text-decoration: underline;
 }
 
-.award-highlight {
-  color: #b01852;
-}
-
-@media (max-width: 620px) {
-  .intro-text {
-    text-align: left;
-  }
-
-  .news-list li {
-    grid-template-columns: 1fr;
-    gap: 0.1rem;
-  }
-
-  .education-header {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .education-period {
-    align-items: start;
-  }
-}
-
-@media (max-width: 430px) {
-  .education-logo-wrap {
-    width: 44px;
-    height: 44px;
-    flex-basis: 44px;
-  }
-
-  .education-logo {
-    width: 34px;
-    max-height: 34px;
-  }
+.more {
+    font-size: 0.9rem;
+    margin: 0 auto;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-style: italic;
 }

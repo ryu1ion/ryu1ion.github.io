@@ -7,7 +7,7 @@ Production URL: <https://ryu1ion.github.io/>
 ## Stack
 
 - React 19 + Vite
-- Component-scoped CSS and data modules
+- Original Long Ling template styling with Tianhao Chen's content
 - GitHub Actions + GitHub Pages
 
 The site is deployed from the `ryu1ion/ryu1ion.github.io` User Pages repository and therefore uses the domain root (`/`) as its Vite base path.
@@ -36,7 +36,7 @@ npm run preview
 Verified profile information is kept separate from the React components:
 
 ```text
-src/data/profile.js       # Identity, bio, interests, navigation, links
+src/data/profile.js       # Identity, research interests, and links
 src/data/news.js          # News, newest first
 src/data/publications.js  # Papers, authors, status, topics, links
 src/data/experience.js    # Experience shown on the site
@@ -56,7 +56,9 @@ In **Settings → Pages**, the deployment source must be set to **GitHub Actions
 
 ## Template provenance
 
-The page structure, light pink visual language, fixed profile column, section styling, and responsive navigation are adapted from [LucyLing24/longling](https://github.com/LucyLing24/longling) at upstream commit `49274d3d465ab3ff1c9af4f0ca3c571e136a2dd9`. All personal information, images, CV content, institution/company marks, publication visuals, metadata, and deployment configuration in this repository were replaced for Tianhao Chen.
+The page structure and appearance come from [LucyLing24/longling](https://github.com/LucyLing24/longling) at upstream commit `49274d3d465ab3ff1c9af4f0ca3c571e136a2dd9`. The upstream `App.css`, `index.css`, `All.css`, `Header.css`, `Hero.css`, `Internship.css`, and `Publications.css` files are copied byte-for-byte without visual changes. Personal information, images, CV content, publication visuals, metadata, and deployment configuration were replaced for Tianhao Chen.
+
+The upstream Google Analytics tag and visitor-map component are retained as requested. Their IDs still belong to the upstream template, so analytics remain associated with the upstream author's accounts until those IDs are replaced with Tianhao Chen's own tracking IDs.
 
 No license file was present in the upstream repository at that commit. Public availability alone does not grant a reuse license; obtain the upstream author's permission before treating the adapted template code as redistributable.
 
