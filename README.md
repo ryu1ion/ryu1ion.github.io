@@ -1,17 +1,16 @@
 # Tianhao Chen Homepage
 
-A static academic homepage for Tianhao Chen, combining a readable research portfolio with an original anime-inspired cyber/HUD visual language.
+Academic homepage for Tianhao Chen, an M.S. student in the School of Computing at KAIST.
 
 Production URL: <https://ryu1ion.github.io/>
 
 ## Stack
 
-- [Astro](https://astro.build/) + TypeScript
-- Static HTML with a small amount of framework-free browser JavaScript
-- Astro image optimization for responsive WebP output
+- React 19 + Vite
+- Component-scoped CSS and data modules
 - GitHub Actions + GitHub Pages
 
-The project is deployed from the `ryu1ion/ryu1ion.github.io` User Pages repository, so it is served directly from the domain root. Site metadata is configured in `astro.config.mjs`.
+The site is deployed from the `ryu1ion/ryu1ion.github.io` User Pages repository and therefore uses the domain root (`/`) as its Vite base path.
 
 ## Local development
 
@@ -22,98 +21,48 @@ npm ci
 npm run dev
 ```
 
-Open <http://localhost:4321/>.
+Open <http://localhost:5173/>.
 
-Useful commands:
+Validation commands:
 
 ```bash
-npm run check    # TypeScript and Astro diagnostics
-npm run build    # Production build to dist/
-npm run preview  # Preview the production build
-npm run og       # Regenerate public/og-card.png
+npm run lint
+npm run build
+npm run preview
 ```
 
-## Project structure
+## Updating academic content
+
+Verified profile information is kept separate from the React components:
 
 ```text
-.
-├── .github/workflows/deploy.yml  # GitHub Pages CI/CD
-├── public/
-│   ├── cv.pdf                    # Public CV opened from the Hero
-│   ├── favicon.svg
-│   └── og-card.png               # Social sharing image
-├── scripts/generate-og.mjs       # Reproducible OG-image generator
-├── src/
-│   ├── assets/                   # Local avatar, logos, fonts, illustration
-│   ├── components/               # Page sections and reusable UI
-│   ├── data/                     # Maintainable academic content
-│   ├── layouts/BaseLayout.astro  # SEO, metadata, structured data
-│   ├── pages/index.astro
-│   └── styles/global.css
-├── astro.config.mjs
-└── package.json
+src/data/profile.js       # Identity, bio, interests, navigation, links
+src/data/news.js          # News, newest first
+src/data/publications.js  # Papers, authors, status, topics, links
+src/data/experience.js    # Experience shown on the site
+src/data/education.js     # Degrees and exchange study
+src/data/awards.js        # Awards and honors
 ```
 
-## Updating content
+Only add publication buttons to the `links` array when a public paper, project, code, or dataset URL has been confirmed.
 
-The site deliberately separates academic facts from presentation.
-
-### Add news
-
-Edit `src/data/news.ts` and add the newest item at the beginning of the `news` array:
-
-```ts
-{
-  date: '2026.10',
-  title: 'A concise factual headline',
-  detail: 'One or two sentences with only verified information.',
-  featured: true,
-}
-```
-
-### Add a publication
-
-Edit `src/data/publications.ts`. Each record contains title, ordered authors, venue/status, a concise description, keywords, and one of the built-in abstract visual motifs. Mark Tianhao's author record with `self: true`.
-
-Only add a `links` array when the paper, project, code, or dataset URL is confirmed:
-
-```ts
-links: [
-  { label: 'Paper', href: 'https://arxiv.org/abs/...' },
-  { label: 'Code', href: 'https://github.com/...' },
-]
-```
-
-Education, experience, profile, highlights, and awards are maintained in their corresponding files under `src/data/`.
+The public CV is stored at `public/cv.pdf`. The original sources remain in `cv/`, and the original `avatar.HEIC` is preserved alongside the web-ready conversion.
 
 ## Deployment
 
-Pushes to `main` run `.github/workflows/deploy.yml`. The official Astro Pages action installs dependencies, runs the build, uploads `dist/`, and the official GitHub Pages action publishes it.
+Every push to `main` runs `.github/workflows/deploy.yml`, which installs dependencies, lints the source, builds the Vite site, uploads `dist/`, and deploys it with the official GitHub Pages actions.
 
-For a new repository, perform this one-time GitHub setting:
+In **Settings → Pages**, the deployment source must be set to **GitHub Actions**.
 
-1. Open **Settings → Pages**.
-2. Under **Build and deployment → Source**, select **GitHub Actions**.
-3. Push to `main` or run **Deploy to GitHub Pages** manually from the Actions tab.
+## Template provenance
 
-The deployed URL is <https://ryu1ion.github.io/>.
+The page structure, light pink visual language, fixed profile column, section styling, and responsive navigation are adapted from [LucyLing24/longling](https://github.com/LucyLing24/longling) at upstream commit `49274d3d465ab3ff1c9af4f0ca3c571e136a2dd9`. All personal information, images, CV content, institution/company marks, publication visuals, metadata, and deployment configuration in this repository were replaced for Tianhao Chen.
 
-## Content provenance
+No license file was present in the upstream repository at that commit. Public availability alone does not grant a reuse license; obtain the upstream author's permission before treating the adapted template code as redistributable.
 
-Personal and academic information is derived from the latest CV source in `cv/cv.typ` and `cv/cv.pdf`. The site intentionally omits publication buttons where the CV does not provide a confirmed URL. The original `avatar.HEIC` is preserved; the build uses a web-ready conversion and emits responsive WebP variants.
+## Asset notes
 
-## Credits and asset sources
-
-- Original AI navigator illustration: generated for this site with OpenAI's built-in image generation tool; no existing anime character or franchise was referenced. The final prompt requested an isolated, transparent, anime-inspired holographic fox-like research companion in indigo/cyan/violet, with no text, logos, watermark, weapons, or copyrighted characters.
-- KAIST logo: [Wikimedia Commons — KAIST logo.svg](https://commons.wikimedia.org/wiki/File:KAIST_logo.svg), sourced there from KAIST and marked public-domain simple geometry/text; trademark restrictions may still apply.
-- Waseda University logo: [Wikimedia Commons — Waseda university logo.svg](https://commons.wikimedia.org/wiki/File:Waseda_university_logo.svg), sourced from Waseda University and marked public domain; trademark restrictions may still apply.
-- Shanghai University logo: cached from the [official Shanghai University website](https://www.shu.edu.cn/images/logo.svg).
-- XiangCai Securities logo: cached from the [official XiangCai Securities website](https://www.xcsc.com/front/images/logo.png).
-- Manrope and Space Grotesk: [Google Fonts](https://fonts.google.com/), distributed under the SIL Open Font License 1.1 and self-hosted here for performance and privacy.
-- Interface icon shapes follow [Lucide](https://lucide.dev/), ISC License.
-
-Design research included the MIT-licensed [academic-homepage Astro project](https://github.com/siruizou2005/academic-homepage) and [Astro Scholar](https://astro.build/themes/details/astro-scholar/) for academic information architecture and static-site accessibility patterns. No template code was copied; the visual system and components in this repository are original.
-
-## License
-
-Site code is released under the MIT License. Personal content, the avatar, CV, and institutional/company marks are excluded from that grant and remain subject to their respective owners' rights.
+- Personal and academic facts come from the latest `cv/cv.typ`, `cv/cv.pdf`, and Tianhao Chen's direct updates.
+- The profile image is a web-ready conversion of the repository's original `avatar.HEIC`.
+- Publication thumbnails are original, code-native SVG abstractions created for the three listed works; they do not reuse unrelated paper figures.
+- KAIST and Waseda marks are locally cached from Wikimedia Commons; the Shanghai University and XiangCai Securities marks are locally cached from their official sites. Institutional marks remain subject to their owners' rights.

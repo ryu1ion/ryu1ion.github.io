@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-labelledby="title desc">
+  <title id="title">BACON abstract visual</title>
+  <desc id="desc">A token grid retaining attention around decision-critical visual boundaries.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6fbff"/><stop offset="1" stop-color="#fff3f7"/></linearGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bec9ff"/><stop offset="1" stop-color="#ff9cb7"/></linearGradient>
+  </defs>
+  <rect width="480" height="320" rx="24" fill="url(#bg)"/>
+  <g transform="translate(67 68)" stroke="#fff" stroke-width="4">
+    <rect x="0" y="0" width="52" height="52" rx="9" fill="#e7eaf7"/><rect x="57" y="0" width="52" height="52" rx="9" fill="#dfe4fa"/><rect x="114" y="0" width="52" height="52" rx="9" fill="#f8d9e3"/><rect x="171" y="0" width="52" height="52" rx="9" fill="#fac6d6"/><rect x="228" y="0" width="52" height="52" rx="9" fill="#eadfed"/><rect x="285" y="0" width="52" height="52" rx="9" fill="#e7eaf7"/>
+    <rect x="0" y="57" width="52" height="52" rx="9" fill="#e8ecf8"/><rect x="57" y="57" width="52" height="52" rx="9" fill="#f4dae4"/><rect x="114" y="57" width="52" height="52" rx="9" fill="url(#hot)"/><rect x="171" y="57" width="52" height="52" rx="9" fill="#f42e7a"/><rect x="228" y="57" width="52" height="52" rx="9" fill="url(#hot)"/><rect x="285" y="57" width="52" height="52" rx="9" fill="#e3e8fa"/>
+    <rect x="0" y="114" width="52" height="52" rx="9" fill="#e7eaf7"/><rect x="57" y="114" width="52" height="52" rx="9" fill="#e0e5fa"/><rect x="114" y="114" width="52" height="52" rx="9" fill="#f9d2df"/><rect x="171" y="114" width="52" height="52" rx="9" fill="#f7b8cc"/><rect x="228" y="114" width="52" height="52" rx="9" fill="#e9dce8"/><rect x="285" y="114" width="52" height="52" rx="9" fill="#e7eaf7"/>
+  </g>
+  <path d="M50 164c67-8 92-47 143-22 42 21 57 57 101 22 46-36 74-16 136-5" fill="none" stroke="#f42e7a" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#f42e7a" stroke-width="4"><circle cx="193" cy="142" r="9"/><circle cx="294" cy="164" r="9"/></g>
+  <text x="28" y="42" fill="#8e6677" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">BOUNDARY ATTENTION</text>
+  <text x="329" y="285" fill="#ac8b98" font-family="Arial,sans-serif" font-size="12" letter-spacing="1">KEEP WHAT MATTERS</text>
+</svg>

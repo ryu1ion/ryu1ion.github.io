@@ -4,8 +4,8 @@
   "description": "Academic homepage of Tianhao Chen at KAIST.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#060817",
-  "theme_color": "#080a18",
+  "background_color": "#ffffff",
+  "theme_color": "#fff6f8",
   "icons": [
     {
       "src": "/favicon.svg",
