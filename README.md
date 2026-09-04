@@ -2,7 +2,7 @@
 
 A static academic homepage for Tianhao Chen, combining a readable research portfolio with an original anime-inspired cyber/HUD visual language.
 
-Production URL: <https://ryu1ion.github.io/homepage/>
+Production URL: <https://ryu1ion.github.io/>
 
 ## Stack
 
@@ -11,7 +11,7 @@ Production URL: <https://ryu1ion.github.io/homepage/>
 - Astro image optimization for responsive WebP output
 - GitHub Actions + GitHub Pages
 
-The project uses the `/homepage/` base path required by the `ryu1ion/homepage` Project Pages URL. Site metadata and the base path are configured in `astro.config.mjs`.
+The project is deployed from the `ryu1ion/ryu1ion.github.io` User Pages repository, so it is served directly from the domain root. Site metadata is configured in `astro.config.mjs`.
 
 ## Local development
 
@@ -22,7 +22,7 @@ npm ci
 npm run dev
 ```
 
-Open <http://localhost:4321/homepage/>. Astro includes the configured project base path in local development.
+Open <http://localhost:4321/>.
 
 Useful commands:
 
@@ -96,7 +96,7 @@ For a new repository, perform this one-time GitHub setting:
 2. Under **Build and deployment → Source**, select **GitHub Actions**.
 3. Push to `main` or run **Deploy to GitHub Pages** manually from the Actions tab.
 
-The deployed URL is <https://ryu1ion.github.io/homepage/>.
+The deployed URL is <https://ryu1ion.github.io/>.
 
 ## Content provenance
 

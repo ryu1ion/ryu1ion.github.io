@@ -29,7 +29,7 @@ const background = Buffer.from(`
       <rect x="190" width="172" height="43" rx="21" fill="#53d7ff" fill-opacity=".08" stroke="#53d7ff" stroke-opacity=".34"/>
       <text x="212" y="27" fill="#9ceaff" font-family="monospace" font-size="12" letter-spacing="1">RESEARCH LOG</text>
     </g>
-    <text x="72" y="584" fill="#5f6887" font-family="monospace" font-size="13" letter-spacing="2">RYU1ION.GITHUB.IO/HOMEPAGE/</text>
+    <text x="72" y="584" fill="#5f6887" font-family="monospace" font-size="13" letter-spacing="2">RYU1ION.GITHUB.IO/</text>
   </svg>
 `);
 
