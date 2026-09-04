@@ -50,9 +50,7 @@ The public CV is stored at `public/cv.pdf`. The original sources remain in `cv/`
 
 ## Deployment
 
-Every push to `main` runs `.github/workflows/deploy.yml`, which installs dependencies, lints the source, builds the Vite site, uploads `dist/`, and deploys it with the official GitHub Pages actions.
-
-In **Settings → Pages**, the deployment source must be set to **GitHub Actions**.
+The repository currently has GitHub's automatic branch-based Pages build enabled. After that automatic workflow finishes, `.github/workflows/deploy.yml` installs dependencies, lints the source, builds the Vite site, uploads `dist/`, and deploys the production artifact with the official GitHub Pages actions. This ordering prevents the automatic source deployment from overwriting the Vite build.
 
 ## Template provenance
 
