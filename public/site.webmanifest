@@ -1,0 +1,16 @@
+{
+  "name": "Tianhao Chen | Academic Homepage",
+  "short_name": "Tianhao Chen",
+  "description": "Academic homepage of Tianhao Chen at KAIST.",
+  "start_url": "/homepage/",
+  "display": "standalone",
+  "background_color": "#060817",
+  "theme_color": "#080a18",
+  "icons": [
+    {
+      "src": "/homepage/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

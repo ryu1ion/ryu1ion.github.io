@@ -1,0 +1,339 @@
+---
+import { Image } from 'astro:assets';
+import { experience } from '../data/experience';
+import SectionHeading from './SectionHeading.astro';
+import Icon from './Icon.astro';
+---
+
+<section class="content-section section-shell" id="experience" aria-labelledby="experience-heading">
+  <SectionHeading
+    index="04"
+    eyebrow="Field log"
+    title="Experience"
+    japanese="経験"
+    description="Applied language-model research in a real-time, multimodal interaction setting."
+    headingId="experience-heading"
+  />
+
+  <div>
+    {experience.map((item) => (
+      <article class="experience-card glass-panel reveal">
+        <div class="experience-card__side">
+          <span class="experience-card__code">EXP_01 / INDUSTRY</span>
+          <a class="experience-card__logo" href={item.url} target="_blank" rel="noreferrer" aria-label={`${item.organization} website`}>
+            <Image src={item.logo} alt={`${item.organization} logo`} loading="lazy" />
+          </a>
+          <span class="experience-card__period">{item.period}</span>
+        </div>
+        <div class="experience-card__body">
+          <div class="experience-card__signal" aria-hidden="true"><i></i><span>MISSION RECORD</span></div>
+          <a href={item.url} target="_blank" rel="noreferrer">
+            <h3>{item.organization}</h3><Icon name="arrow-up-right" size={18} />
+          </a>
+          <p class="experience-card__role">{item.role}</p>
+          <p class="experience-card__description">{item.description}</p>
+          <div class="experience-card__tags">
+            {item.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </div>
+        <div class="experience-card__telemetry" aria-hidden="true">
+          <span>VOICE</span><i style="--level:72%"></i>
+          <span>LANGUAGE</span><i style="--level:91%"></i>
+          <span>REALTIME</span><i style="--level:83%"></i>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <article class="project-signal reveal" aria-label="Research project">
+    <div class="project-signal__index">
+      <span>PROJECT / 01</span>
+      <strong>VPTSL</strong>
+      <small>06—08 / 2024</small>
+    </div>
+    <div class="project-signal__content">
+      <p>NC State University Summer Research Program</p>
+      <h3>Multimodal Temporal Grounding for Instructional Video Understanding</h3>
+      <div class="project-signal__line" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="project-signal__description">
+        Developed VPTSL, a cross-modal temporal grounding framework that aligns visual observations, timestamped language, and task instructions to identify decision-relevant moments in long-form videos.
+      </p>
+    </div>
+  </article>
+</section>
+
+<style>
+  .experience-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr) 7rem;
+    min-height: 25rem;
+    overflow: hidden;
+  }
+
+  .experience-card::before {
+    position: absolute;
+    top: -9rem;
+    right: 2rem;
+    width: 26rem;
+    height: 26rem;
+    border: 1px solid rgba(83, 215, 255, 0.06);
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, transparent 0, transparent 35px, rgba(83, 215, 255, 0.025) 36px, transparent 37px);
+    content: '';
+  }
+
+  .experience-card__side {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    padding: 1.35rem;
+    flex-direction: column;
+    border-right: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.012);
+  }
+
+  .experience-card__code,
+  .experience-card__period {
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+  }
+
+  .experience-card__logo {
+    display: grid;
+    width: 100%;
+    min-height: 6rem;
+    margin: auto 0;
+    padding: 1rem;
+    place-items: center;
+    border-radius: 0.65rem;
+    background: #fff;
+  }
+
+  .experience-card__logo :global(img) {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .experience-card__period { color: var(--cyan); }
+
+  .experience-card__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    padding: clamp(1.5rem, 4vw, 3.4rem);
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .experience-card__signal {
+    display: flex;
+    gap: 0.55rem;
+    margin-bottom: 1.3rem;
+    align-items: center;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+  }
+
+  .experience-card__signal i {
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 50%;
+    background: var(--pink);
+    box-shadow: 0 0 10px var(--pink);
+  }
+
+  .experience-card__body > a {
+    display: inline-flex;
+    gap: 0.7rem;
+    width: fit-content;
+    align-items: center;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .experience-card__body h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.6vw, 3rem);
+    letter-spacing: -0.05em;
+  }
+
+  .experience-card__body > a :global(svg) {
+    color: var(--text-dim);
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .experience-card__body > a:hover :global(svg) { color: var(--cyan); transform: translate(2px, -2px); }
+
+  .experience-card__role {
+    margin: 0.55rem 0 1.5rem;
+    color: var(--violet-soft);
+    font-family: var(--font-display);
+    font-size: 0.87rem;
+    font-weight: 600;
+  }
+
+  .experience-card__description {
+    max-width: 45rem;
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.88rem;
+    line-height: 1.85;
+  }
+
+  .experience-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.6rem;
+  }
+
+  .experience-card__tags span {
+    padding: 0.38rem 0.58rem;
+    border: 1px solid rgba(83, 215, 255, 0.15);
+    border-radius: 0.4rem;
+    background: rgba(83, 215, 255, 0.035);
+    color: #a9dbea;
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+  }
+
+  .experience-card__telemetry {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    padding: 1.5rem 1.1rem;
+    align-content: center;
+    border-left: 1px solid var(--line);
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.43rem;
+    letter-spacing: 0.08em;
+  }
+
+  .experience-card__telemetry i {
+    position: relative;
+    width: 2px;
+    height: 3.7rem;
+    margin: 0.4rem auto 0.85rem;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .experience-card__telemetry i::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: var(--level);
+    background: linear-gradient(var(--pink), var(--cyan));
+    box-shadow: 0 0 7px var(--cyan);
+    content: '';
+  }
+
+  .project-signal {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    margin-top: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: rgba(10, 14, 35, 0.58);
+  }
+
+  .project-signal__index {
+    display: flex;
+    padding: 1.4rem;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--line);
+    background:
+      linear-gradient(140deg, rgba(111, 83, 255, 0.13), transparent 65%),
+      rgba(255, 255, 255, 0.012);
+  }
+
+  .project-signal__index span,
+  .project-signal__index small {
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .project-signal__index strong {
+    margin-block: 3rem;
+    color: var(--cyan);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 24px rgba(83, 215, 255, 0.3);
+  }
+
+  .project-signal__content {
+    padding: clamp(1.4rem, 4vw, 2.7rem);
+  }
+
+  .project-signal__content > p:first-child {
+    margin: 0 0 0.6rem;
+    color: var(--violet-soft);
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-signal h3 {
+    max-width: 33ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.7vw, 2.2rem);
+    letter-spacing: -0.04em;
+    line-height: 1.18;
+  }
+
+  .project-signal__line {
+    display: flex;
+    height: 1px;
+    margin: 1.5rem 0;
+    background: var(--line);
+  }
+
+  .project-signal__line i {
+    width: 4px;
+    height: 4px;
+    margin-top: -1px;
+    margin-right: 24%;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+  }
+
+  .project-signal__description {
+    max-width: 51rem;
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .experience-card { grid-template-columns: 11rem minmax(0, 1fr); }
+    .experience-card__telemetry { display: none; }
+    .project-signal { grid-template-columns: 11rem minmax(0, 1fr); }
+  }
+
+  @media (max-width: 630px) {
+    .experience-card,
+    .project-signal { grid-template-columns: 1fr; }
+    .experience-card__side,
+    .project-signal__index { border-right: 0; border-bottom: 1px solid var(--line); }
+    .experience-card__logo { max-width: 15rem; min-height: 5rem; margin: 2rem 0; }
+    .experience-card__body { padding: 1.35rem; }
+    .project-signal__index strong { margin: 2rem 0; }
+  }
+</style>

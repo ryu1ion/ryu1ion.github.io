@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import BackgroundEffects from '../components/BackgroundEffects.astro';
+import Navbar from '../components/Navbar.astro';
+import { profile } from '../data/profile';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Tianhao Chen | AI Researcher',
+  description = 'Academic homepage of Tianhao Chen, an M.S. student at KAIST researching multi-agent systems and efficient multimodal inference.',
+} = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(`${baseUrl}og-card.png`, Astro.site);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  url: canonical.href,
+  image: ogImage.href,
+  email: `mailto:${profile.email}`,
+  jobTitle: profile.title,
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Korea Advanced Institute of Science and Technology',
+    alternateName: 'KAIST',
+    url: 'https://www.kaist.ac.kr/en/',
+  },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Shanghai University' },
+    { '@type': 'CollegeOrUniversity', name: 'Waseda University' },
+  ],
+  sameAs: [profile.links.github, profile.links.scholar],
+  knowsAbout: ['Multi-Agent Systems', 'Efficient Multimodal Inference'],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#080a18" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    <link rel="manifest" href={`${baseUrl}site.webmanifest`} />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tianhao Chen — multimodal and multi-agent AI researcher" />
+    <meta property="profile:first_name" content={profile.givenName} />
+    <meta property="profile:last_name" content={profile.familyName} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{title}</title>
+    <script is:inline>document.documentElement.classList.add('has-js');</script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <BackgroundEffects />
+    <Navbar />
+    <slot />
+  </body>
+</html>

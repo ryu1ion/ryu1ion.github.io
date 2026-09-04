@@ -1,0 +1,151 @@
+---
+import { profile } from '../data/profile';
+import Icon from './Icon.astro';
+---
+
+<footer class="site-footer">
+  <div class="section-shell site-footer__inner">
+    <div class="site-footer__headline">
+      <span>END OF CURRENT LOG</span>
+      <h2>Let’s build intelligent<br /><em>systems that connect.</em></h2>
+    </div>
+    <div class="site-footer__contact">
+      <p>For research conversations and collaboration:</p>
+      <a href={profile.links.email}>{profile.email}<Icon name="arrow-up-right" size={18} /></a>
+      <div>
+        <a href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Icon name="github" /></a>
+        <a href={profile.links.scholar} target="_blank" rel="noreferrer" aria-label="Google Scholar"><Icon name="scholar" /></a>
+        <a href={profile.links.email} aria-label="Email"><Icon name="mail" /></a>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Tianhao Chen</span>
+      <span>Built with Astro · Hosted on GitHub Pages</span>
+      <a href="#home">BACK TO TOP ↑</a>
+    </div>
+    <div class="site-footer__easter" aria-hidden="true">未来を、つなぐ。</div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background:
+      radial-gradient(circle at 20% 0%, rgba(102, 77, 221, 0.13), transparent 35rem),
+      rgba(5, 7, 20, 0.72);
+  }
+
+  .site-footer__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: 2rem;
+  }
+
+  .site-footer__headline > span {
+    color: var(--cyan);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.13em;
+  }
+
+  .site-footer h2 {
+    margin: 1rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 5vw, 4.6rem);
+    font-weight: 600;
+    letter-spacing: -0.06em;
+    line-height: 1.04;
+  }
+
+  .site-footer h2 em {
+    background: linear-gradient(90deg, var(--violet-soft), var(--cyan));
+    background-clip: text;
+    color: transparent;
+    font-style: normal;
+  }
+
+  .site-footer__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .site-footer__contact p {
+    margin: 0 0 0.8rem;
+    color: var(--text-dim);
+    font-size: 0.72rem;
+  }
+
+  .site-footer__contact > a {
+    display: inline-flex;
+    gap: 0.55rem;
+    align-items: center;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    text-decoration: none;
+  }
+
+  .site-footer__contact > a :global(svg) { color: var(--cyan); }
+
+  .site-footer__contact > div {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .site-footer__contact > div a {
+    display: grid;
+    width: 2.8rem;
+    height: 2.8rem;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    color: var(--text-soft);
+    transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  .site-footer__contact > div a:hover {
+    border-color: rgba(83, 215, 255, 0.35);
+    color: var(--cyan);
+    transform: translateY(-2px);
+  }
+
+  .site-footer__bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    margin-top: 4rem;
+    padding-top: 1.2rem;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  .site-footer__bottom a { color: var(--cyan); text-decoration: none; }
+
+  .site-footer__easter {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: -0.18em;
+    color: rgba(255, 255, 255, 0.018);
+    font-size: clamp(4rem, 13vw, 11rem);
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 760px) {
+    .site-footer__inner { grid-template-columns: 1fr; }
+    .site-footer__contact { margin-top: 1rem; }
+    .site-footer__bottom { display: grid; gap: 0.55rem; margin-top: 2rem; }
+  }
+</style>

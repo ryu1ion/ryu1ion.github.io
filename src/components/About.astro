@@ -1,0 +1,345 @@
+---
+import { profile } from '../data/profile';
+import SectionHeading from './SectionHeading.astro';
+import Icon from './Icon.astro';
+---
+
+<section class="content-section section-shell" id="about" aria-labelledby="about-heading">
+  <SectionHeading
+    index="01"
+    eyebrow="Profile decoded"
+    title="About me"
+    japanese="自己紹介"
+    description="Working at the intersection of collaborative intelligence and efficient multimodal systems."
+    headingId="about-heading"
+  />
+
+  <div class="about-grid">
+    <article class="about-copy glass-panel reveal">
+      <div class="panel-label"><span>LOG_001</span><span>IDENTITY / RESEARCH</span></div>
+      {profile.bio.map((paragraph) => <p>{paragraph}</p>)}
+      <a class="text-link" href={profile.links.advisor} target="_blank" rel="noreferrer">
+        Advisor profile · Prof. Dongman Lee <Icon name="arrow-up-right" size={15} />
+      </a>
+      <div class="manga-note" aria-label="Current research status">
+        <span class="manga-note__label">CURRENTLY</span>
+        <p><span>&gt;</span> {profile.status}</p>
+        <i aria-hidden="true"></i>
+      </div>
+    </article>
+
+    <aside class="research-panel glass-panel reveal" aria-label="Research interests">
+      <div class="panel-label"><span>MODULE_02</span><span>RESEARCH INTERESTS</span></div>
+      <div class="research-panel__core" aria-hidden="true">
+        <span class="research-panel__ring research-panel__ring--one"></span>
+        <span class="research-panel__ring research-panel__ring--two"></span>
+        <strong>AI</strong>
+        <small>AGENT CORE</small>
+      </div>
+      <div class="interest-list">
+        {profile.interests.map((interest, index) => (
+          <div class="interest-tag">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <p>{interest}</p>
+            <i aria-hidden="true"></i>
+          </div>
+        ))}
+      </div>
+      <div class="research-panel__footer">
+        <span>PERCEPTION</span><i></i><span>COMMUNICATION</span><i></i><span>DECISION</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(22rem, 0.92fr);
+    gap: 1.25rem;
+  }
+
+  .about-copy,
+  .research-panel {
+    position: relative;
+    min-height: 31rem;
+    padding: clamp(1.4rem, 3.5vw, 2.7rem);
+    overflow: hidden;
+  }
+
+  .about-copy::before {
+    position: absolute;
+    right: -2.5rem;
+    bottom: -5rem;
+    color: rgba(255, 255, 255, 0.018);
+    font-family: var(--font-display);
+    font-size: 14rem;
+    font-weight: 800;
+    line-height: 1;
+    content: '01';
+  }
+
+  .panel-label {
+    display: flex;
+    margin-bottom: clamp(2.2rem, 5vw, 4.2rem);
+    justify-content: space-between;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+  }
+
+  .panel-label span:first-child { color: var(--cyan); }
+
+  .about-copy > p {
+    position: relative;
+    max-width: 47rem;
+    margin: 0 0 1.2rem;
+    color: var(--text-soft);
+    font-size: clamp(1rem, 1.5vw, 1.13rem);
+    line-height: 1.95;
+  }
+
+  .about-copy > p:first-of-type::first-letter {
+    margin-right: 0.08em;
+    color: var(--cyan);
+    font-family: var(--font-display);
+    font-size: 2.9rem;
+    font-weight: 650;
+    line-height: 0.7;
+  }
+
+  .text-link {
+    position: relative;
+    display: inline-flex;
+    gap: 0.42rem;
+    margin-top: 0.35rem;
+    align-items: center;
+    color: #bbaeff;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .text-link::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.25rem;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--violet), transparent);
+    content: '';
+    transform: scaleX(0.35);
+    transform-origin: left;
+    transition: transform 220ms ease;
+  }
+
+  .text-link:hover::after { transform: scaleX(1); }
+
+  .manga-note {
+    position: relative;
+    max-width: 35rem;
+    margin-top: 3rem;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid rgba(121, 108, 255, 0.27);
+    border-radius: 0.8rem 0.8rem 0.8rem 0;
+    background: rgba(83, 69, 189, 0.07);
+  }
+
+  .manga-note::after {
+    position: absolute;
+    bottom: -0.8rem;
+    left: -1px;
+    border-top: 0.85rem solid rgba(121, 108, 255, 0.25);
+    border-right: 0.95rem solid transparent;
+    content: '';
+  }
+
+  .manga-note__label {
+    position: absolute;
+    top: -0.55rem;
+    left: 1rem;
+    padding: 0.12rem 0.5rem;
+    background: var(--surface-solid);
+    color: var(--pink);
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.13em;
+  }
+
+  .manga-note p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  .manga-note p span { color: var(--cyan); }
+
+  .manga-note i {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.55rem;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-right: 1px solid var(--cyan);
+    border-bottom: 1px solid var(--cyan);
+    transform: rotate(45deg);
+  }
+
+  .research-panel {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 0 1rem;
+    align-content: start;
+    background:
+      linear-gradient(150deg, rgba(73, 47, 150, 0.12), rgba(20, 31, 59, 0.05)),
+      var(--glass-bg);
+  }
+
+  .research-panel .panel-label {
+    grid-column: 1 / -1;
+    margin-bottom: 2.3rem;
+  }
+
+  .research-panel__core {
+    position: relative;
+    display: grid;
+    width: 9.3rem;
+    aspect-ratio: 1;
+    place-content: center;
+    align-self: center;
+    border: 1px solid rgba(89, 222, 255, 0.17);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(83, 215, 255, 0.1), transparent 65%);
+  }
+
+  .research-panel__core strong {
+    background: linear-gradient(135deg, #fff, var(--cyan));
+    background-clip: text;
+    color: transparent;
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .research-panel__core small {
+    margin-top: 0.25rem;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.45rem;
+    letter-spacing: 0.13em;
+    text-align: center;
+  }
+
+  .research-panel__ring {
+    position: absolute;
+    inset: 0.7rem;
+    border: 1px dashed rgba(138, 112, 255, 0.42);
+    border-radius: 50%;
+    animation: core-spin 18s linear infinite;
+  }
+
+  .research-panel__ring--two {
+    inset: -0.45rem;
+    border-color: rgba(83, 215, 255, 0.17);
+    animation-direction: reverse;
+    animation-duration: 26s;
+  }
+
+  .research-panel__ring::after {
+    position: absolute;
+    top: 12%;
+    right: 5%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    content: '';
+  }
+
+  .interest-list {
+    display: grid;
+    gap: 0.62rem;
+  }
+
+  .interest-tag {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.7rem;
+    min-height: 3.15rem;
+    padding: 0.72rem 0.8rem;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 0.65rem;
+    background: rgba(255, 255, 255, 0.022);
+    transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+  }
+
+  .interest-tag:hover {
+    border-color: rgba(83, 215, 255, 0.28);
+    background: rgba(83, 215, 255, 0.045);
+    transform: translateX(0.2rem);
+  }
+
+  .interest-tag span {
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+  }
+
+  .interest-tag p {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  .interest-tag i {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--violet-soft);
+    box-shadow: 0 0 7px var(--violet);
+  }
+
+  .research-panel__footer {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.55rem;
+    margin-top: 2.4rem;
+    align-items: center;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.44rem;
+    letter-spacing: 0.08em;
+  }
+
+  .research-panel__footer i {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--violet), var(--cyan));
+    opacity: 0.35;
+  }
+
+  @keyframes core-spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 980px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-copy,
+    .research-panel { min-height: auto; }
+  }
+
+  @media (max-width: 560px) {
+    .about-copy,
+    .research-panel { padding: 1.25rem; }
+    .panel-label { margin-bottom: 2.2rem; }
+    .research-panel { grid-template-columns: 1fr; }
+    .research-panel__core { width: 7.5rem; margin: 0 auto 2rem; }
+    .research-panel__footer { display: none; }
+  }
+</style>

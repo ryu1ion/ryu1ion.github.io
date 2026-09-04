@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ryu1ion.github.io/homepage/sitemap-index.xml
