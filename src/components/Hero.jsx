@@ -17,11 +17,11 @@ function Hero() {
       <div className="hero-left">
         <img
           src={avatar}
-          alt="Profile"
+          alt="Tianhao Chen (陈天皓)"
           className="profile-pic"
         />
         <div className="hero-meta">
-          <div className="meta-name">Tianhao Chen 陈天皓</div>
+          <h1 className="meta-name" style={{ margin: 0 }}>Tianhao Chen 陈天皓</h1>
           M.S. Student in Computer Science
           <div className="meta-description">
             <div>🧠 Multimodal Large Language Models</div>

@@ -7,11 +7,14 @@
       name="description"
       content="Academic homepage of Tianhao Chen, a KAIST master's student researching multimodal large language models, efficient inference, and multi-agent collaboration."
     />
+    <meta name="author" content="Tianhao Chen" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://ryu1ion.github.io/" />
     <link rel="icon" type="image/png" href="/logo-round.png" />
 
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Tianhao Chen" />
+    <meta property="og:site_name" content="Tianhao Chen" />
     <meta property="og:description" content="Multimodal large language models, efficient inference, and multi-agent collaboration research at KAIST." />
     <meta property="og:url" content="https://ryu1ion.github.io/" />
     <meta property="og:image" content="https://ryu1ion.github.io/avatar.jpg" />
@@ -35,26 +38,75 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Tianhao Chen",
-        "url": "https://ryu1ion.github.io/",
-        "email": "mailto:thchen@kaist.ac.kr",
-        "jobTitle": "M.S. Student in Computer Science",
-        "affiliation": {
-          "@type": "CollegeOrUniversity",
-          "name": "Korea Advanced Institute of Science and Technology",
-          "alternateName": "KAIST"
-        },
-        "sameAs": [
-          "https://github.com/ryu1ion",
-          "https://scholar.google.com/citations?user=JfSu3qwAAAAJ&hl=zh-TW"
-        ],
-        "knowsAbout": [
-          "Multimodal Large Language Models",
-          "Reasoning and Inference Efficiency",
-          "Multi-Agent Collaboration",
-          "Test-Time Training",
-          "Memory-Augmented Models"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://ryu1ion.github.io/#website",
+            "url": "https://ryu1ion.github.io/",
+            "name": "Tianhao Chen",
+            "alternateName": [
+              "Tianhao Chen Academic Homepage",
+              "陈天皓"
+            ],
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://ryu1ion.github.io/#profile-page",
+            "url": "https://ryu1ion.github.io/",
+            "name": "Tianhao Chen",
+            "description": "Academic homepage of Tianhao Chen, a master's student in the School of Computing at KAIST.",
+            "isPartOf": {
+              "@id": "https://ryu1ion.github.io/#website"
+            },
+            "mainEntity": {
+              "@id": "https://ryu1ion.github.io/#person"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://ryu1ion.github.io/#person",
+            "name": "Tianhao Chen",
+            "givenName": "Tianhao",
+            "familyName": "Chen",
+            "alternateName": [
+              "陈天皓",
+              "ryu1ion"
+            ],
+            "url": "https://ryu1ion.github.io/",
+            "image": "https://ryu1ion.github.io/avatar.jpg",
+            "description": "Master's student in the School of Computing at KAIST and researcher at the CDSN Lab.",
+            "email": "mailto:thchen@kaist.ac.kr",
+            "jobTitle": "M.S. Student in Computer Science",
+            "affiliation": [
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "Korea Advanced Institute of Science and Technology",
+                "alternateName": "KAIST"
+              },
+              {
+                "@type": "Organization",
+                "name": "CDSN Lab",
+                "url": "https://cds.kaist.ac.kr/"
+              }
+            ],
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Shanghai University"
+            },
+            "sameAs": [
+              "https://github.com/ryu1ion",
+              "https://scholar.google.com/citations?user=JfSu3qwAAAAJ&hl=en"
+            ],
+            "knowsAbout": [
+              "Multimodal Large Language Models",
+              "Reasoning and Inference Efficiency",
+              "Multi-Agent Collaboration",
+              "Test-Time Training",
+              "Memory-Augmented Models"
+            ]
+          }
         ]
       }
     </script>
