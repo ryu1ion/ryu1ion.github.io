@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../css/Header.css';
-import logo from '../assets/logo.jpeg';
+import logo from '../assets/logo-round.png';
 
 const NAV = [
   { id: 'about', label: 'About' },
@@ -9,7 +9,6 @@ const NAV = [
   { id: 'internship', label: 'Internship' },
   { id: 'education', label: 'Education' },
   { id: 'awards', label: 'Awards' },
-  { id: 'more', label: 'More' },
 ];
 
 export default function Header() {
@@ -25,7 +24,17 @@ export default function Header() {
     <header className={`header-wrapper ${menuOpen ? 'menu-open' : ''}`}>
       <div className="header-container">
         <div className="header-name">
-          <img src={logo} alt="logo" style={{ width: '36px', marginRight: 12 }} />
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              width: '36px',
+              height: '36px',
+              marginRight: 12,
+              borderRadius: '50%',
+              objectFit: 'cover',
+            }}
+          />
           <div className="name-main">T<span className="fancy-i">i</span>anhao Chen</div>
         </div>
 

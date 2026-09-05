@@ -7,7 +7,6 @@ import Publications from './components/Publications';
 import Internship from './components/Internship';
 import Education from './components/Education';
 import SelectedAwards from './components/SelectedAwards';
-import More from './components/More';
 import Visitor from './components/Visitor';
 import './App.css';
 import './css/All.css';
@@ -32,7 +31,6 @@ function App() {
             <Internship />
             <Education />
             <SelectedAwards />
-            <More />
           </div>
           <Visitor />
         </div>
