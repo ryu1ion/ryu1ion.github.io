@@ -62,7 +62,7 @@ export default function Publications() {
 
       <div className="publications-info">
         <div className="publications-info-small">
-          * indicates equal contribution, and † denotes the advising professor.
+          * indicates equal contribution, and † denotes corresponding authors.
         </div>
       </div>
 
@@ -97,7 +97,7 @@ export default function Publications() {
                   let symbol = '';
                   if (author.role === 'first') symbol = '*';
                   if (author.role === 'second') symbol = '**';
-                  if (author.role === 'advisor') symbol = '†';
+                  if (author.role === 'corresponding') symbol = '†';
 
                   const isMe = author.name === MY_NAME;
                   const authorName = isMe ? (

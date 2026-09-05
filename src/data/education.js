@@ -20,7 +20,7 @@ export const education = [
     degree: 'B.Eng. in Computer Science and Technology',
     college: '',
     gpa: '3.75/4.0, 91.58/100, Top 4%',
-    period: '2021 - 2025',
+    period: '2021.09 - 2025.06',
     location: 'Shanghai, China',
   },
 ];
