@@ -1,4 +1,4 @@
-import xiangcaiLogo from '../assets/logos/xiangcai.png';
+import xiangcaiLogo from '../assets/logos/xiangcai.jpg';
 import kaistLogo from '../assets/logos/kaist.svg';
 
 export const experiences = [

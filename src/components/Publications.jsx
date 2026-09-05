@@ -153,10 +153,18 @@ export default function Publications() {
               </div>
 
               <div className="publication-links">
-                {paper.links.pdf && <a href={paper.links.pdf}>PDF</a>}
-                {paper.links.arxiv && <a href={paper.links.arxiv}>arXiv</a>}
-                {paper.links.github && <a href={paper.links.github}>Github</a>}
-                {paper.links.web && <a href={paper.links.web}>Website</a>}
+                {paper.links.pdf && (
+                  <a href={paper.links.pdf} target="_blank" rel="noopener noreferrer">PDF</a>
+                )}
+                {paper.links.arxiv && (
+                  <a href={paper.links.arxiv} target="_blank" rel="noopener noreferrer">arXiv</a>
+                )}
+                {paper.links.project && (
+                  <a href={paper.links.project} target="_blank" rel="noopener noreferrer">Project</a>
+                )}
+                {paper.links.code && (
+                  <a href={paper.links.code} target="_blank" rel="noopener noreferrer">Code</a>
+                )}
               </div>
             </div>
           </div>

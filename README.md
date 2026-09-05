@@ -63,6 +63,6 @@ No license file was present in the upstream repository at that commit. Public av
 ## Asset notes
 
 - Personal and academic facts come from the latest `cv/cv.typ`, `cv/cv.pdf`, and Tianhao Chen's direct updates.
-- The profile image is a web-ready conversion of the repository's original `avatar.HEIC`.
-- Publication thumbnails are original, code-native SVG abstractions created for the three listed works; they do not reuse unrelated paper figures.
-- KAIST and Waseda marks are locally cached from Wikimedia Commons; the Shanghai University and XiangCai Securities marks are locally cached from their official sites. Institutional marks remain subject to their owners' rights.
+- The profile image is a web-ready conversion of the repository's original `avatar.HEIC`; the header and browser-tab icon use the supplied `logo.jpeg`.
+- Publication thumbnails are rasterized from representative figures in each paper's official arXiv source package.
+- The XiangCai Securities mark uses the supplied `xiangcai.jpg`. KAIST and Waseda marks are locally cached from Wikimedia Commons, and the Shanghai University mark is locally cached from its official site. Institutional marks remain subject to their owners' rights.

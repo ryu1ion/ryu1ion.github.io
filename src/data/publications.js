@@ -1,6 +1,6 @@
-import lacoImage from '../assets/paper_image/laco.svg';
-import baconImage from '../assets/paper_image/bacon.svg';
-import deltaImage from '../assets/paper_image/delta-forcing.svg';
+import lacoImage from '../assets/paper_image/laco.png';
+import baconImage from '../assets/paper_image/bacon.png';
+import deltaImage from '../assets/paper_image/delta-forcing.png';
 
 export const publications = [
   {
@@ -19,7 +19,9 @@ export const publications = [
     venues: [{ name: 'Under Review', type: 'submission' }],
     tags: ['In Submission', 'Multi-Agent Systems', 'Collaborative Driving', 'Latent Communication'],
     image: lacoImage,
-    links: {},
+    links: {
+      arxiv: 'https://arxiv.org/abs/2605.22504',
+    },
   },
   {
     id: 'bacon',
@@ -39,7 +41,11 @@ export const publications = [
     venues: [{ name: 'EMNLP 2026 Main · 15.4% Acceptance Rate', type: 'conference' }],
     tags: ['Efficient Multimodal AI', 'KV Cache Compression', 'Visual Attention'],
     image: baconImage,
-    links: {},
+    links: {
+      arxiv: 'https://arxiv.org/abs/2606.14782',
+      project: 'https://ryu1ion.github.io/official_BACON/',
+      code: 'https://github.com/ryu1ion/official_BACON',
+    },
   },
   {
     id: 'delta-forcing',
@@ -60,6 +66,10 @@ export const publications = [
     venues: [{ name: 'Under Review', type: 'submission' }],
     tags: ['In Submission', 'Video Generation', 'Autoregressive Models', 'Interactive AI'],
     image: deltaImage,
-    links: {},
+    links: {
+      arxiv: 'https://arxiv.org/abs/2605.14382',
+      project: 'https://delta-forcing-website.vercel.app/',
+      code: 'https://github.com/wyhallenwu/DeltaForcing',
+    },
   },
 ];

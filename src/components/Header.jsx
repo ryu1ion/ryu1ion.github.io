@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../css/Header.css';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.jpeg';
 
 const NAV = [
   { id: 'about', label: 'About' },
