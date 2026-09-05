@@ -31,14 +31,6 @@ function Hero() {
           <div className="meta-link">
             <a
               className="meta-linkitem"
-              href={profile.links.scholar}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Google Scholar
-            </a>
-            <a
-              className="meta-linkitem"
               href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
