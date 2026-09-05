@@ -11,8 +11,8 @@ export default function Visitor() {
 
         const script = document.createElement('script');
         script.type = 'text/javascript';
-        script.id = 'mmvst_globe';
-        script.src = '//mapmyvisitors.com/globe.js?d=sw2oeZFKs6o__v5NLOHc6oV2EF9GqYw67HRzXyaKr8w';
+        script.id = 'mapmyvisitors';
+        script.src = '//mapmyvisitors.com/map.js?d=TwzCxKoh3Vr_O8VcwCUKwpUKNAKhdbRxzQoqT_LAwFY&cl=ffffff&w=a';
         script.async = true;
         container.appendChild(script);
 
