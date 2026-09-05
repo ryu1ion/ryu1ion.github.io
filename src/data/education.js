@@ -5,7 +5,7 @@ export const education = [
     college: 'School of Computing',
     gpa: null,
     period: '2025.09 - Present',
-    location: 'Republic of Korea',
+    location: 'Daejeon, Korea',
   },
   {
     university: 'Waseda University',
@@ -13,7 +13,7 @@ export const education = [
     college: '',
     gpa: null,
     period: '2024.10 - 2025.03',
-    location: 'Japan',
+    location: 'Tokyo, Japan',
   },
   {
     university: 'Shanghai University',
@@ -21,6 +21,6 @@ export const education = [
     college: '',
     gpa: '3.75/4.0, 91.58/100, Top 4%',
     period: '2021 - 2025',
-    location: 'China',
+    location: 'Shanghai, China',
   },
 ];
