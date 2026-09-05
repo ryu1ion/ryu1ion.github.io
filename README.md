@@ -56,7 +56,7 @@ The repository currently has GitHub's automatic branch-based Pages build enabled
 
 The page structure and appearance come from [LucyLing24/longling](https://github.com/LucyLing24/longling) at upstream commit `49274d3d465ab3ff1c9af4f0ca3c571e136a2dd9`. The upstream `App.css`, `index.css`, `All.css`, `Header.css`, `Hero.css`, `Internship.css`, and `Publications.css` files are copied byte-for-byte without visual changes. Personal information, images, CV content, publication visuals, metadata, and deployment configuration were replaced for Tianhao Chen.
 
-The upstream Google Analytics tag and visitor-map component are retained as requested. Their IDs still belong to the upstream template, so analytics remain associated with the upstream author's accounts until those IDs are replaced with Tianhao Chen's own tracking IDs.
+The upstream Google Analytics tag is retained as requested; its ID still belongs to the upstream template. The MapMyVisitors component uses Tianhao Chen's supplied `mmvst_globe` tracking script.
 
 No license file was present in the upstream repository at that commit. Public availability alone does not grant a reuse license; obtain the upstream author's permission before treating the adapted template code as redistributable.
 
