@@ -26,7 +26,7 @@ export default function Header() {
       <div className="header-container">
         <div className="header-name">
           <img src={logo} alt="logo" style={{ width: '36px', marginRight: 12 }} />
-          <div className="name-main">Tianhao Ch<span className="fancy-i">e</span>n</div>
+          <div className="name-main">T<span className="fancy-i">i</span>anhao Chen</div>
         </div>
 
         <button
