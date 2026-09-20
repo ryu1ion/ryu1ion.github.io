@@ -31,7 +31,7 @@ function Hero() {
           <div className="meta-link">
             <a
               className="meta-linkitem"
-              href="/cv.pdf"
+              href="/new_cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
