@@ -3,7 +3,7 @@ import { experiences } from '../data/experience';
 import '../css/Internship.css';
 
 export default function Internship() {
-  const [selectedTag, setSelectedTag] = useState('Work');
+  const [selectedTag, setSelectedTag] = useState('');
 
   const handleTagClick = (tag) => {
     setSelectedTag(selectedTag === tag ? '' : tag);
