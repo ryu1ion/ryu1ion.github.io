@@ -2,6 +2,12 @@
 export const news = [
   {
     time: '2026.09',
+    title: 'BACON selected for an oral presentation at EMNLP 2026',
+    detail: 'Our paper will be presented as an oral at EMNLP 2026!',
+    publicationId: 'bacon',
+  },
+  {
+    time: '2026.09',
     title: 'First author paper accepted to EMNLP 2026 Main',
     detail: 'BACON was accepted to the main conference with a 15.4% acceptance rate. See you in Budapest, Hungary!',
     publicationId: 'bacon',

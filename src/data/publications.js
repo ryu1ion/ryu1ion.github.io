@@ -18,7 +18,7 @@ export const publications = [
       { name: 'Xiaobin Hu', role: 'corresponding' },
       { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'corresponding' },
     ],
-    venues: [{ name: 'EMNLP 2026 Main', type: 'conference' }],
+    venues: [{ name: 'EMNLP 2026 Oral', type: 'conference' }],
     tags: ['Efficient Multimodal AI', 'KV Cache Compression', 'Visual Attention'],
     image: baconImage,
     links: {
