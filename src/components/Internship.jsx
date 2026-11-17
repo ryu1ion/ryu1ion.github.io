@@ -88,9 +88,6 @@ export default function Internship() {
                       <li key={projectIndex}>
                         <div className="project-roles">
                           {project.name}
-                          {project.roles.map((role, roleIndex) => (
-                            <span key={roleIndex} className="role-tag">{role}</span>
-                          ))}
                         </div>
                       </li>
                     ))}

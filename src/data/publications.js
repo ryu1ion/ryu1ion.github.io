@@ -1,8 +1,33 @@
+import reaccessImage from '../assets/paper_image/reaccess.png';
 import lacoImage from '../assets/paper_image/laco.png';
 import baconImage from '../assets/paper_image/bacon.png';
 import deltaImage from '../assets/paper_image/delta-forcing.png';
 
 export const publications = [
+  {
+    id: 'reaccess',
+    title: 'ReAccess: Look Once, Stay Focused with Efficient Test Time Memory',
+    abstract: (
+      'A lightweight memory framework that preserves question-relevant visual evidence during ' +
+      'a single prefill and progressively retrieves it to guide frozen vision-language models ' +
+      'for efficient, fine-grained visual understanding.'
+    ),
+    authors: [
+      { name: 'Tianhao Chen', link: 'https://ryu1ion.github.io/' },
+      { name: 'Yilong Fan' },
+      { name: 'Yuheng Wu' },
+      { name: 'Xiaobin Hu', role: 'corresponding' },
+      { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'corresponding' },
+    ],
+    venues: [{ name: 'Under Review', type: 'submission' }],
+    image: reaccessImage,
+    imageAlt: 'ReAccess framework: question-conditioned memory construction and progressive evidence retrieval.',
+    links: {
+      arxiv: 'https://arxiv.org/abs/2611.20936',
+      project: 'https://ryu1ion.github.io/reaccess/',
+      code: 'https://github.com/ryu1ion/reaccess',
+    },
+  },
   {
     id: 'bacon',
     title: 'Last But Not Least: Boundary Attention CalibratiON for Multimodal KV Cache Compression',
@@ -19,8 +44,8 @@ export const publications = [
       { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'corresponding' },
     ],
     venues: [{ name: 'EMNLP 2026 Oral', type: 'conference' }],
-    tags: ['Efficient Multimodal AI', 'KV Cache Compression', 'Visual Attention'],
     image: baconImage,
+    imageAlt: 'BACON framework: boundary evidence, intra-layer support, and inter-layer support for KV cache compression.',
     links: {
       arxiv: 'https://arxiv.org/abs/2606.14782',
       project: 'https://ryu1ion.github.io/official_BACON/',
@@ -41,8 +66,8 @@ export const publications = [
       { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'corresponding' },
     ],
     venues: [{ name: 'Under Review', type: 'submission' }],
-    tags: ['In Submission', 'Multi-Agent Systems', 'Collaborative Driving', 'Latent Communication'],
     image: lacoImage,
+    imageAlt: 'LACO framework: iterative latent deliberation, cross-horizon saliency attribution, and shallow-stream knowledge distillation.',
     links: {
       arxiv: 'https://arxiv.org/abs/2605.22504',
     },
@@ -64,7 +89,6 @@ export const publications = [
       { name: 'Dongman Lee', link: 'https://cds.kaist.ac.kr/people/dongmanlee/', role: 'corresponding' },
     ],
     venues: [{ name: 'Under Review', type: 'submission' }],
-    tags: ['In Submission', 'Video Generation', 'Autoregressive Models', 'Interactive AI'],
     image: deltaImage,
     links: {
       arxiv: 'https://arxiv.org/abs/2605.14382',

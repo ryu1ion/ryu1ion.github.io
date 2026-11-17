@@ -271,16 +271,6 @@ name{
     margin-right: 4px;
 }
 
-.role-tag {
-    white-space: nowrap;
-    display: inline-block;
-    background-color: var(--surface);
-    color: var(--text-secondary);
-    font-size: 0.7rem;
-    padding: 0px 8px;
-    border-radius: 99px;
-}
-
 .role-link {
     white-space: nowrap;
     display: inline-block;

@@ -16,11 +16,9 @@ export const experiences = [
     projects: [
       {
         name: 'Multimodal large language models: reasoning and inference efficiency',
-        roles: ['#MLLM', '#Efficient Inference'],
       },
       {
         name: 'Multi-agent collaboration, test-time training, and memory-augmented models',
-        roles: ['#Multi-Agent', '#Adaptive AI'],
       },
     ],
   },

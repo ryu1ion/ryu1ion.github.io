@@ -4,44 +4,14 @@ import '../css/Publications.css';
 
 const MY_NAME = 'Tianhao Chen';
 
-const tagColors = {
-  conference: 'conference',
-  journal: 'journal',
-  workshop: 'workshop',
-  submission: 'submission',
-  wip: 'wip',
-  project: 'project',
-  exhibition: 'exhibition',
-};
-
-const tagStyleMap = {
-  'In Submission': '#cccccc',
-  'Multi-Agent Systems': '#F47DA5',
-  'Collaborative Driving': '#7FD2CC',
-  'Latent Communication': '#A8E2DE',
-  'Efficient Multimodal AI': '#27A7A1',
-  'KV Cache Compression': '#65D4DF',
-  'Visual Attention': '#51C2E0',
-  'Video Generation': '#5AA7E8',
-  'Autoregressive Models': '#928DE2',
-  'Interactive AI': '#B48CDC',
-};
-
 export default function Publications() {
-  const [selectedTag, setSelectedTag] = useState('');
+  const [authorshipFilter, setAuthorshipFilter] = useState('all');
 
-  const filteredPublications = selectedTag
-    ? publications.filter((paper) => paper.tags.includes(selectedTag))
+  const filteredPublications = authorshipFilter === 'first-author'
+    ? publications.filter((paper) => paper.authors.some((author, index) => (
+      author.name === MY_NAME && (index === 0 || author.role === 'first')
+    )))
     : publications;
-
-  const handleTagClick = (tag) => {
-    setSelectedTag(selectedTag === tag ? '' : tag);
-  };
-
-  const handleSelectChange = (event) => {
-    const newTag = event.target.value;
-    handleTagClick(newTag);
-  };
 
   return (
     <div className="publications" id="publications" style={{ marginTop: '1rem' }}>
@@ -49,14 +19,12 @@ export default function Publications() {
         <div className="card-title">Publications</div>
         <select
           className="tag-select-filter"
-          value={selectedTag}
-          onChange={handleSelectChange}
-          style={{ background: `${tagColors[selectedTag]}` }}
+          aria-label="Filter publications by authorship"
+          value={authorshipFilter}
+          onChange={(event) => setAuthorshipFilter(event.target.value)}
         >
-          <option value="">All</option>
-          {Object.keys(tagStyleMap).map((tag) => (
-            <option key={tag} value={tag}>{tag}</option>
-          ))}
+          <option value="all">All</option>
+          <option value="first-author">First Author</option>
         </select>
       </div>
 
@@ -67,11 +35,11 @@ export default function Publications() {
       </div>
 
       <div className="publications-list">
-        {filteredPublications.map((paper, index) => (
-          <div key={index} className="publication-card" id={paper.id}>
+        {filteredPublications.map((paper) => (
+          <div key={paper.id} className="publication-card" id={paper.id}>
             <img
               src={paper.image}
-              alt={paper.title}
+              alt={paper.imageAlt ?? paper.title}
               className="publication-image"
             />
 
@@ -80,7 +48,7 @@ export default function Publications() {
                 {paper.venues.map((venue, venueIndex) => (
                   <span
                     key={venueIndex}
-                    className={`venue-tag ${tagColors[venue.type]}`}
+                    className={`venue-tag ${venue.type}`}
                   >
                     {venue.name}
                   </span>
@@ -123,30 +91,6 @@ export default function Publications() {
                         authorName
                       )}
                       {index < paper.authors.length - 1 && ', '}
-                    </span>
-                  );
-                })}
-              </div>
-
-              <div className="publication-tags">
-                {paper.tags.map((tag, index) => {
-                  if (tag === 'Selected') {
-                    return (
-                      <span key={index} className="tag-item-show rainbow-tag-all">
-                        #{tag}
-                      </span>
-                    );
-                  }
-                  if (tag === 'In Submission') {
-                    return (
-                      <span key={index} className="tag-item-show submission-tag-all">
-                        #{tag}
-                      </span>
-                    );
-                  }
-                  return (
-                    <span key={index} className="tag-item-show" style={{ color: 'var(--text-secondary)' }}>
-                      #{tag}
                     </span>
                   );
                 })}
