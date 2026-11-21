@@ -52,7 +52,7 @@ function Hero() {
               </a>
             ))}
           </div>
-          <div className="small-text">Last Updated Date: 2026/11/17</div>
+          <div className="small-text">Last Updated Date: 2026/11/21</div>
         </div>
       </div>
     </div>

@@ -109,7 +109,7 @@
 }
 
 .venue-tag.conference {
-    background-color: var(--soft);
+    background-color: var(--primary-hover);
 }
 
 .venue-tag.journal {
