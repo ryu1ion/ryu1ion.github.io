@@ -46,13 +46,11 @@ export default function Internship() {
             </div>
 
             <div className="timeline-content">
-              <div className="org-logo-container">
-                <img
-                  src={experience.organization.logo}
-                  alt={`${experience.organization.name} Logo`}
-                  className="org-logo"
-                />
-              </div>
+              <img
+                src={experience.organization.logo}
+                alt={`${experience.organization.name} Logo`}
+                className="org-logo"
+              />
 
               <div className="exp-container">
                 <div className="timeline-header">
